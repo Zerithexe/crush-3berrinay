@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Berrinay &amp; Ömer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="petal-field" id="petalField" aria-hidden="true"></div>
+
+<header class="top">
+  <span class="mono">Ö</span>
+  <span class="knot">&amp;</span>
+  <span class="mono">B</span>
+</header>
+
+<!-- ================= HERO / ENVELOPE ================= -->
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <p class="eyebrow-less">bir mektup var,</p>
+    <div class="envelope-wrap">
+      <div class="envelope" id="envelope">
+        <div class="envelope-back"></div>
+        <div class="envelope-letter">
+          <p>Berrinay için</p>
+        </div>
+        <div class="envelope-flap"></div>
+      </div>
+      <p class="tap-hint" id="tapHint">açmak için dokun</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LETTER ================= -->
+<main class="content" id="content" hidden>
+
+  <section class="letter" id="letter">
+    <p class="salut">Berrinay,</p>
+    <p>
+      Bugün "crush grubu" yüzünden kavga ettik ve aklımdan hiç çıkmadı.
+      Meselenin ne kadar küçük ya da büyük olduğunu tartışmak yerine,
+      önce şunu söylemek istiyorum: seni üzdüysem gerçekten özür dilerim.
+    </p>
+    <p>
+      Bazen tartışmanın içindeyken haklı çıkmak, dinlemekten daha kolay
+      geliyor. Ama sen benim için tartışmayı kazanmaktan çok daha
+      değerlisin. Seni kırdıysam, görmezden geldiysem ya da hissettiklerini
+      küçümsediysem — özür dilerim.
+    </p>
+    <p>
+      Bu site biraz da onun için: sana ne kadar önemli olduğunu, sadece
+      "özür dilerim" demekle bırakmak istemedim. Aşağıda seninle ilgili
+      küçük bir oyun var, sana söz verdiklerim var ve en sonunda da
+      söylemem gereken tek şey var.
+    </p>
+    <p class="signed">— Ömer</p>
+  </section>
+
+  <!-- ================= APOLOGY BUTTON MOMENT ================= -->
+  <section class="forgive" id="forgive">
+    <h2>Beni affeder misin?</h2>
+    <p class="forgive-sub">Bir tık yeter.</p>
+    <div class="forgive-buttons">
+      <button class="btn-yes" id="btnYes">Evet, affettim</button>
+      <button class="btn-no" id="btnNo">Hayır</button>
+    </div>
+    <p class="forgive-result" id="forgiveResult"></p>
+  </section>
+
+  <!-- ================= GAME: GUESS THE SONG (emoji) ================= -->
+  <section class="game" id="game">
+    <h2>Bizim çalma listemiz</h2>
+    <p class="game-sub">
+      Aşağıdaki emojiler bir şarkıyı anlatıyor. Şarkının adını tahmin
+      et — sözlerini yazmıyorum, sadece ipucu var. (Cevapları ve
+      şarkıları kendi anılarınıza göre değiştirebilirsin, script.js
+      içindeki <code>songRounds</code> listesinden.)
+    </p>
+
+    <div class="game-card" id="gameCard">
+      <div class="game-progress" id="gameProgress"></div>
+      <div class="emoji-clue" id="emojiClue">🎵</div>
+      <input
+        type="text"
+        id="guessInput"
+        class="guess-input"
+        placeholder="şarkının adını yaz..."
+        autocomplete="off"
+      />
+      <div class="game-actions">
+        <button class="btn-ghost" id="skipBtn">geç</button>
+        <button class="btn-solid" id="guessBtn">tahmin et</button>
+      </div>
+      <p class="game-feedback" id="gameFeedback"></p>
+    </div>
+
+    <p class="game-score" id="gameScore"></p>
+  </section>
+
+  <!-- ================= PROMISES ================= -->
+  <section class="promises" id="promises">
+    <h2>Sana sözlerim</h2>
+    <p class="promises-sub">Her birini okuyunca üzerine dokun.</p>
+    <ul class="promise-list" id="promiseList">
+      <li data-checked="false">Bir dahaki sefere önce dinleyeceğim, sonra konuşacağım.</li>
+      <li data-checked="false">Seni kıskandıracak şeyleri umursamayacağım kadar seni önemseyeceğim.</li>
+      <li data-checked="false">Kavga ettiğimizde seni yalnız bırakmayacağım.</li>
+      <li data-checked="false">Küçük şeyleri büyütmeden, önce konuşacağız.</li>
+      <li data-checked="false">Seni her gün bir kere bile olsa güldüreceğim.</li>
+    </ul>
+  </section>
+
+  <!-- ================= FINALE ================= -->
+  <section class="finale" id="finale">
+    <div class="heart-stage" id="heartStage">
+      <button class="heart-btn" id="heartBtn" aria-label="kalbe dokun">
+        <svg viewBox="0 0 100 90" class="heart-svg">
+          <path d="M50 85 C20 60 2 40 2 22 C2 8 14 0 26 0 C36 0 45 6 50 16 C55 6 64 0 74 0 C86 0 98 8 98 22 C98 40 80 60 50 85 Z"/>
+        </svg>
+      </button>
+    </div>
+    <h1 class="final-line" id="finalLine">Seni seviyorum, Berrinay.</h1>
+    <p class="final-sub">Kavga etsek de, en çok istediğim şey senin yanında olmak.</p>
+    <p class="final-signed">— Ömer, her zaman</p>
+  </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
